@@ -21,6 +21,12 @@
     animation: pipe-animation 1.5s infinite linear;
 }
 
+@media(max-width: 767px) {
+    .pipe {
+        animation: pipe-animation 1s infinite linear;
+    }
+}
+
 .mario {
     width: 100px;
     position: absolute;
