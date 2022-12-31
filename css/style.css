@@ -1,86 +1,139 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .game-board {
-    width: 100%;
-    height: 500px;
-    border-bottom: 15px solid rgba(35, 100, 35);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(#87ceeb, #e0f6ff);
+  width: 100%;
+  height: 500px;
+  border-bottom: 15px solid rgba(35, 100, 35);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#87ceeb, #e0f6ff);
 }
 
 .pipe {
-    position: absolute;
-    bottom: 0;
-    width: 80px;
-    animation: pipe-animation 1.5s infinite linear;
+  position: absolute;
+  bottom: 0;
+  right: -80px;
+  width: 80px;
 }
 
-@media(max-width: 767px) {
-    .pipe {
-        animation: pipe-animation 1s infinite linear;
-    }
+.pipe.started {
+  animation: pipe-animation 1.5s infinite linear;
+}
+
+@media (max-width: 767px) {
+  .pipe {
+    animation: pipe-animation 1s infinite linear;
+  }
 }
 
 .mario {
-    width: 100px;
-    position: absolute;
-    bottom: 0;
+  width: 100px;
+  position: absolute;
+  bottom: 0;
 }
 
 .jump {
-    animation: jump 500ms ease-out;
+  animation: jump 500ms ease-out;
 }
 
 .clouds {
-    width: 550px;
-    position: absolute;
-    animation: clouds-animation 20s infinite linear;
+  width: 550px;
+  position: absolute;
+  animation: clouds-animation 20s infinite linear;
+}
+
+.start {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  border: 0;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+}
+
+.end {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: calc(50% - 130px);
+  left: calc(50% - 130px);
+  border: 0;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  display: none;
+}
+
+.end button {
+  background-color: green;
+  border: 0;
+  color: #fff;
+  padding: 8px 18px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.start button {
+  background-color: green;
+  border: 0;
+  color: #fff;
+  padding: 8px 24px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 @keyframes pipe-animation {
-    from {
-        right: -80px;
-    }
+  from {
+    right: -80px;
+  }
 
-    to {
-        right: 100%;
-    }
+  to {
+    right: 100%;
+  }
 }
 
 @keyframes jump {
-    0% {
-        bottom: 0;
-    }
+  0% {
+    bottom: 0;
+  }
 
-    40% {
-        bottom: 180px;
-    }
+  40% {
+    bottom: 180px;
+  }
 
-    50% {
-        bottom: 180px;
-    }
+  50% {
+    bottom: 180px;
+  }
 
-    60% {
-        bottom: 180px;
-    }
+  60% {
+    bottom: 180px;
+  }
 
-    100% {
-        bottom: 0;
-    }
+  100% {
+    bottom: 0;
+  }
 }
 
 @keyframes clouds-animation {
-    from {
-        right: -550px;
-    }
+  from {
+    right: -550px;
+  }
 
-    to {
-        right: 100%;
-    }
+  to {
+    right: 100%;
+  }
 }
