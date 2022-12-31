@@ -3,6 +3,8 @@ const pipe = document.querySelector(".pipe");
 const start = document.querySelector(".start");
 const end = document.querySelector(".end");
 
+const pipes = ["mia.jpg", "gafanhoto.png"];
+
 const jump = () => {
   mario.classList.add("jump");
 
@@ -11,15 +13,19 @@ const jump = () => {
   }, 500);
 };
 
+let idx = 0;
+
 function startGame() {
   start.style.display = "none";
   pipe.classList.add("started");
 
   const loop = setInterval(() => {
+    pipe.src = `./images/${pipes[idx]}`;
+
     var pipePosition = pipe.offsetLeft;
     var marioPosition = window.getComputedStyle(mario).bottom.replace("px", "");
 
-    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+    if (pipePosition <= 70 && pipePosition > 0 && marioPosition < 80) {
       gameOver(pipePosition, marioPosition);
       clearInterval(loop);
     }
